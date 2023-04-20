@@ -1,7 +1,20 @@
-import './app.scss'
+import React from 'react'
+import Feed from '../feed/feed'
+import Navbar from '../navbar/navbar'
+import SideBlock from '../side-block/side-block'
 
-export function App(): JSX.Element {
+interface Props { }
+
+function App(props: Props) {
+   const { } = props
+
    return (
-      <div>Hello world</div>
+      <>
+         <Navbar />
+         <Feed />
+         <SideBlock/>
+      </>
    )
 }
+
+export default App
