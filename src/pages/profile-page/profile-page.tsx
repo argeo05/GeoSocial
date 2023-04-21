@@ -2,18 +2,16 @@ import Feed from "../../components/feed/feed"
 import Navbar from "../../components/navbar/navbar"
 import SideBlock from "../../components/side-block/side-block"
 
-interface Props {}
+interface Props { }
 
-function MainPage(props: Props) {
-   const {} = props
+function ProfilePage(props: Props) {
+   const { } = props
 
    return (
       <div>
-         <Navbar />
-         <Feed />
-         <SideBlock />
+         Profile
       </div>
    )
 }
 
-export { MainPage }
+export { ProfilePage }

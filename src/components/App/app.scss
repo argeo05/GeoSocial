@@ -1,3 +1,6 @@
-div {
+@import '../../variables.scss';
+
+.main {
+   background-color: $theme-color;
    color: red;
 }
