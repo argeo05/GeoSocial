@@ -1,0 +1,13 @@
+@use '../../sass-utils/resets.module.scss';
+
+.top {
+   display: flex;
+}
+
+.navList {
+   @include resets.ul-reset;
+}
+
+.navLink {
+   @include resets.a-reset;
+}

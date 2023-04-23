@@ -1,0 +1,38 @@
+@use './sass-utils/variables.module.scss';
+@import-normalize;
+
+
+body,
+html {
+   padding: 0;
+   margin: 0;
+   background-color: variables.$theme-color;
+}
+
+img {
+   max-width: 100%;
+   height: auto;
+}
+
+.container {
+   width: 1476px;
+   margin: 0 auto;
+}
+
+.page {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   align-items: flex-start;
+   justify-content: space-between;
+
+   header {
+      flex-basis: 258px;
+      margin-right: 36px;
+   }
+   
+   main {
+      flex-grow: 1;
+   }
+}
+

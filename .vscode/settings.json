@@ -1,5 +1,5 @@
 {
-   "css.lint.unknownAtRules": "error",
+   "scss.lint.unknownAtRules": "ignore",
    "javascript.autoClosingTags": false,
    "typescript.autoClosingTags": false,
 }
