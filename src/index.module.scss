@@ -9,6 +9,7 @@ html {
 }
 
 body {
+   padding-top: 5px;
    height: 100vh;
    background-color: variables.$theme-color;
 }
@@ -31,7 +32,7 @@ img {
    justify-content: space-between;
 
    header {
-      flex-basis: 258px;
+      flex-basis: 225px;
       margin-right: 36px;
    }
    

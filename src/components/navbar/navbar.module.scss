@@ -2,10 +2,49 @@
 
 .top {
    display: flex;
+   justify-content: space-between;
+   align-items: center;
+   min-height: 45px;
 }
 
+.user {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   margin-top: 8px;
+}
 
+.userName {
+   @include resets.a-reset;
+   display: block;
+   position: relative;
+   margin-right: 6px;
+   padding-left: 30px;
+   font-family: Arimo;
+   font-size: 18px;
+   font-weight: 700;
+   line-height: 40px;
+   letter-spacing: -0.015em;
+   text-align: left;
+   color: white;
+   &NotLogged::before {
+      position: absolute;
+      display: block;
+      content: '';
+      top: 7px;
+      left: 0;
+      width: 30px;
+      height: 30px;
+      background-image: url(../../../public/img/login.svg);
+      background-repeat: no-repeat;
+   }
+}
 
+.userImage {
+   width: 35px;
+   height: 35px;
+   border-radius: 100%
+}
 
 .navList {
    @include resets.ul-reset;
@@ -18,12 +57,12 @@
    @include resets.li-reset;
    position: relative;
    margin-bottom: 45px;
-   padding-left: 50px;
 }
 
 .navLink {
    @include resets.a-reset;
    display: block;
+   padding-left: 50px;
    font-family: Arimo;
    font-size: 23px;
    font-weight: 700;
