@@ -4,10 +4,61 @@
    display: flex;
 }
 
+
+
+
 .navList {
    @include resets.ul-reset;
+   margin-top: 40px;
+   display: flex;
+   flex-direction: column;
+}
+
+.navLi {
+   @include resets.li-reset;
+   position: relative;
+   margin-bottom: 45px;
+   padding-left: 50px;
 }
 
 .navLink {
    @include resets.a-reset;
+   display: block;
+   font-family: Arimo;
+   font-size: 23px;
+   font-weight: 700;
+   line-height: 40px;
+   letter-spacing: -0.015em;
+   text-align: left;
+   color: white;
+
+   &::before {
+      position: absolute;
+      left: 0px;
+      content: '';
+      display: block;
+      width: 40px;
+      height: 40px;
+      background-repeat: no-repeat;
+      background-position: center center;
+   }
+
+   &Profile::before {
+      background-image: url('../../../public/img/user.svg');
+   }
+
+   &Explore::before {
+      background-image: url('../../../public/img/hashtag.svg');
+   }
+   
+   &Notifications::before {
+      background-image: url('../../../public/img/message.svg');
+   }
+   
+   &Home::before {
+      background-image: url('../../../public/img/home.svg');
+   }
+
 }
+
+

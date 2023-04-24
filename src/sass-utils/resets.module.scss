@@ -15,17 +15,11 @@
 @mixin ul-reset {
    margin: 0;
    padding: 0;
+   list-style: none;
+}
+
+@mixin li-reset {
    margin: 0;
-   padding: 0;
-
-   li {
-      display: inline-block;
-
-      margin: {
-         left: 0;
-         right: 0;
-      }
-   }
 }
 
 @mixin a-reset {
