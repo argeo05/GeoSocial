@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { LOGIN_ROUTE, PROFILE_ROUTE } from '../../utils/const'
 import navbar from './navbar.module.scss'
@@ -7,8 +7,14 @@ interface Props { }
 
 function Navbar(props: Props) {
    const { } = props
-   const isAuth = true
-   const userName = 'UserName'
+   const [isAuth, setIsAuth] = useState(false)
+   let userName = 'UserNameee'
+   if (userName.length > 9) {
+      userName = userName.slice(0, 8) + '...'
+   }
+   const onClickHandle = () => {
+      setIsAuth(!isAuth)
+   }
    return (
       <div className={`${navbar.cotainer}`}>
          <div className={`${navbar.top}`}>
@@ -42,6 +48,7 @@ function Navbar(props: Props) {
                </li>
             </ul>
          </nav>
+         <button onClick={onClickHandle}>Change Auth status</button>
       </div>
    )
 }

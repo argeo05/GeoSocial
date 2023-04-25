@@ -7,9 +7,14 @@
    min-height: 45px;
 }
 
+.logo {
+   flex-shrink: 0;
+}
+
 .user {
    display: flex;
    flex-direction: row;
+   justify-content: flex-end;
    align-items: center;
    margin-top: 8px;
 }
@@ -19,24 +24,29 @@
    display: block;
    position: relative;
    margin-right: 6px;
-   padding-left: 30px;
+   margin-right: auto;
    font-family: Arimo;
-   font-size: 18px;
+   font-size: 16px;
    font-weight: 700;
    line-height: 40px;
    letter-spacing: -0.015em;
    text-align: left;
    color: white;
-   &NotLogged::before {
-      position: absolute;
-      display: block;
-      content: '';
-      top: 7px;
-      left: 0;
-      width: 30px;
-      height: 30px;
-      background-image: url(../../../public/img/login.svg);
-      background-repeat: no-repeat;
+
+
+   &NotLogged {
+      padding-left: 30px;
+      &::before {
+         position: absolute;
+         display: block;
+         content: '';
+         top: 7px;
+         left: 0;
+         width: 30px;
+         height: 30px;
+         background-image: url(../../../public/img/login.svg);
+         background-repeat: no-repeat;
+      }
    }
 }
 
