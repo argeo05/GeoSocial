@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom'
-import { LOGIN_ROUTE } from '../../utils/const'
+import { AppRoute } from '../../routes'
 
 type Props = {
    component: JSX.Element
@@ -11,7 +11,7 @@ function PrivateRoute(props: Props) {
    const isAuth = false
 
    if (!isAuth) {
-      return <Navigate to={LOGIN_ROUTE} />
+      return <Navigate to={AppRoute.Login} />
    }
 
    return component

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { LOGIN_ROUTE, PROFILE_ROUTE } from '../../utils/const'
+import { AppRoute } from '../../routes'
 import navbar from './navbar.module.scss'
 
 interface Props { }
@@ -23,11 +23,11 @@ function Navbar(props: Props) {
             </div>
             { isAuth ? 
                <div className={`${navbar.user}`}>
-                  <Link to={PROFILE_ROUTE} className={`${navbar.userName}`} >{userName}</Link>
+                  <Link to={AppRoute.MyProfile} className={`${navbar.userName}`} >{userName}</Link>
                   <img className={`${navbar.userImage}`} src='img/avatar.png' width='35px' height='35px' />
                </div> :
                <div className={`${navbar.user}`}>
-                  <Link to={LOGIN_ROUTE} className={`${navbar.userName} ${navbar.userNameNotLogged}`}>Login</Link>
+                  <Link to={AppRoute.Login} className={`${navbar.userName} ${navbar.userNameNotLogged}`}>Login</Link>
                </div>
             }
             
@@ -38,7 +38,7 @@ function Navbar(props: Props) {
                   <Link className={`${navbar.navLink}  ${navbar.navLinkHome}`} to='/'>Home</Link>
                </li>
                <li className={`${navbar.navLi}`} >
-                  <Link className={`${navbar.navLink}  ${navbar.navLinkProfile}`} to={ PROFILE_ROUTE }>Profile</Link>
+                  <Link className={`${navbar.navLink}  ${navbar.navLinkProfile}`} to={ AppRoute.MyProfile }>Profile</Link>
                </li>
                <li className={`${navbar.navLi}`} >
                   <Link className={`${navbar.navLink}  ${navbar.navLinkExplore}`} to='/'>Explore</Link>

@@ -1,22 +1,30 @@
 import LoginPage from "./pages/login-page/login-page";
 import { MainPage } from "./pages/main-page/main-page";
 import { ProfilePage } from "./pages/profile-page/profile-page";
-import { LOGIN_ROUTE, MAIN_ROUTE, PROFILE_ROUTE } from "./utils/const";
 
-export const SiteRoutes = [
+enum AppRoute {
+   Main = '/',
+   Login = '/login',
+   MyProfile = '/my-profile',
+}
+
+const SiteRoutes = [
    {
-      path: MAIN_ROUTE,
+      path: AppRoute.Main,
       component: MainPage,
       isAuthRequired: false
    },
    {
-      path: LOGIN_ROUTE,
+      path: AppRoute.Login,
       component: LoginPage,
       isAuthRequired: false
    },
    {
-      path: PROFILE_ROUTE,
+      path: AppRoute.MyProfile,
       component: ProfilePage,
       isAuthRequired: true
    },
 ]
+
+export {SiteRoutes, AppRoute}
+

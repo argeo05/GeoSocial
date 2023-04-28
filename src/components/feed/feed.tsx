@@ -2,7 +2,7 @@ import React from 'react'
 import style from './feed.module.scss'
 import index from '../../index.module.scss'
 import { Link } from 'react-router-dom'
-import { PROFILE_ROUTE } from '../../utils/const'
+import { AppRoute } from '../../routes'
 
 interface Props { }
 
@@ -16,7 +16,7 @@ function Feed(props: Props) {
          <article className={`${style.dayBlock}`} >
             <div className={`${style.dayPhoto}`}>
                <h3 className={`${style.dayPhotoLabel}`}>Фото дня</h3>
-               <img src='img' className={`${style.dayPhotoImg}`} />
+               <img src='img/avatar.png' className={`${style.dayPhotoImg}`} width='500px' height='200px'/>
             </div>
          </article>
          <div className={`${style.newsBlock}`}>
@@ -26,7 +26,7 @@ function Feed(props: Props) {
             </ul>
             <article className={`${style.post}`}>
                <div className={`${style.postUser}`}>
-                  <Link to={PROFILE_ROUTE} className={`${style.userName}`} >UserName</Link>
+                  <Link to={AppRoute.MyProfile} className={`${style.userName}`} >UserName</Link>
                   <img className={`${style.userImage}`} src='img/avatar.png' width='35px' height='35px' />
                </div>
                <div className={`${style.postText}`}>
