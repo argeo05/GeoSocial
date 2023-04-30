@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { MainSlice } from "../../types/state";
 import { NameSpace } from "../../utils/const";
-import { getRandomPhoto } from '../api-action'
+import { fetchRandomPhoto } from '../api-action'
 
 //slice for main page
 
@@ -16,14 +16,14 @@ export const mainSlice = createSlice({
    reducers: {},
    extraReducers(builder) {
       builder
-         .addCase(getRandomPhoto.pending, (state, action) => {
+         .addCase(fetchRandomPhoto.pending, (state, action) => {
             state.isDailyPhotoLoading = true
          })
-         .addCase(getRandomPhoto.rejected, (state, action) => {
+         .addCase(fetchRandomPhoto.rejected, (state, action) => {
             state.isDailyPhotoLoading = false
             state.isDailyPhotoError = false
          })
-         .addCase(getRandomPhoto.fulfilled, (state, action) => {
+         .addCase(fetchRandomPhoto.fulfilled, (state, action) => {
             state.isDailyPhotoLoading = false
             state.isDailyPhotoError = false
             state.dailyPhoto = action.payload

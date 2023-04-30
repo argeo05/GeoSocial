@@ -5,15 +5,16 @@ import { Cat } from "../types/common";
 
 //api-actions to use Axios requests
 
-export const getRandomPhoto = createAsyncThunk<Cat, undefined,
+export const fetchRandomPhoto = createAsyncThunk<Cat, undefined,
    {
       dispatch: AppDispatch,
       state: State,
       extra: AxiosInstance
-}>(
-   'data/randomPhoto',
-   async (_arg, { dispatch, extra: api }) => {
-      const {data} = await api.get<Cat>('https://some-random-api.ml/animal/cat')
-      return data
-   }
-)
+   }>(
+      'data/randomPhoto',
+      async (_arg, { dispatch, extra: api }) => {
+         console.log(3)
+         const { data } = await api.get<Cat>('https://some-random-api.ml/animal/cat')
+         return data
+      }
+   )
