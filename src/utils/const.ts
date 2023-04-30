@@ -1,2 +1,3 @@
-const sDSD = 21
-export { sDSD }
+export enum NameSpace {
+   Main = 'MAIN'
+}
