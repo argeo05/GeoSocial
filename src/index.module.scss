@@ -25,20 +25,9 @@ img {
 }
 
 .page {
-   display: flex;
-   flex-direction: row;
-   flex-wrap: nowrap;
-   align-items: flex-start;
-   justify-content: space-between;
-
-   header {
-      flex-basis: 225px;
-      margin-right: 36px;
-   }
-   
-   main {
-      flex-grow: 1;
-   }
+   display: grid;
+   grid-template-columns: 225px 1fr;
+   grid-gap: 25px;
 }
 
 .visuallyHidden {

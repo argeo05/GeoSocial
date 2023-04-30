@@ -19,15 +19,15 @@ function DailyPhoto(props: Props) {
    }, [])
 
    return (
-      <div className={`${style.dailyPhotoLabel}`
+      <div className={`${style.dailyBlock}`
       }>
          {
             isDailyPhotoLoading ?
                <Loading height='150px' />
                :
-               <img src={dailyPhoto?.image} className={`${style.dailyPhotoImg}`} width='500px' height='200px' />
+               <img src={dailyPhoto?.image} className={`${style.dailyPhoto}`} height='320px' />
          }
-         <p className={`${style.dailyPhotoFact}`}>{dailyPhoto?.fact}</p>
+         <p className={`${style.dailyFact}`}>{dailyPhoto?.fact}</p>
       </div>
 
    )

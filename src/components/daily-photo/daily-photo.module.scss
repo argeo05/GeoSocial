@@ -1,0 +1,10 @@
+.dailyBlock {
+   display: grid;
+   grid-template-columns: 630px 1fr;
+}
+
+.dailyPhoto {
+   height: 320px;
+   width: 600px;
+   object-fit: cover;
+}
