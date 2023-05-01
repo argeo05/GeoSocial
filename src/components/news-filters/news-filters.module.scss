@@ -1,0 +1,64 @@
+@use '../../sass-utils/resets.module.scss';
+
+.newsFilters {
+   @include resets.ul-reset;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   padding-bottom: 10px;
+   border-bottom: 1px solid #3A444C;
+
+   font-family: 'Helvetica Neue';
+   font-style: normal;
+   font-weight: 700;
+   font-size: 15px;
+   line-height: 18px;
+   display: flex;
+   align-items: center;
+   letter-spacing: 0.01em;
+   color: #8A98A4;
+}
+
+.newsFilter {
+   @include resets.li-reset;
+   box-sizing: border-box;
+   text-align: center;
+   width: 50%;
+   padding: 0 50px;
+   position: relative;
+
+   &:hover, &Active {
+      &::after {
+            position: absolute;
+            left: 50%;
+            bottom: -12px;
+            display: block;
+            content: '';
+            width: 100%;
+            height: 3px;
+            transform: translateX(-50%);
+            background-color: #2d6494;
+         }
+   }
+
+   &:hover {
+      cursor: pointer;
+      color: #2d6494;
+   }
+
+   &Active {
+      color: #4a9fe9;
+      
+      &:hover {
+         color: #4a9fe9;
+         &::after {
+            background-color: #4a9fe9;
+         }
+      }
+      
+      &::after {
+         background-color: #4a9fe9;
+      }
+   }
+}
+

@@ -11,6 +11,7 @@ html {
 body {
    padding-top: 5px;
    height: 100vh;
+   overflow: hidden;
    background-color: variables.$theme-color;
 }
 
@@ -21,12 +22,14 @@ img {
 
 .container {
    width: 1476px;
+   min-height: 100vh;
+   padding-bottom: 20px;
    margin: 0 auto;
 }
 
 .page {
    display: grid;
-   grid-template-columns: 225px 1fr;
+   grid-template-columns: 245px 1fr;
    grid-gap: 25px;
 }
 

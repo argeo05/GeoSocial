@@ -9,6 +9,7 @@ import { AppDispatch } from '../../types/state'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux/es/exports'
 import DailyPhoto from '../daily-photo/daily-photo';
+import NewsFilters from '../news-filters/news-filters';
 
 
 interface Props { }
@@ -20,21 +21,20 @@ function Feed(props: Props) {
 
    return (
       <section className={`${style.container}`}>
-         <h2 className={`${index.visuallyHidden}`}>Основная секция</h2>
+         <h2 className={`${index.visuallyHidden}`}>Main section</h2>
          <article className={`${style.dailyBlock}`} >
             <div className={`${style.dailyPhoto}`}>
-               <h3 className={`${style.dailyyPhotoLabel}`}>Фото дня</h3>
-               <div className={`${style.dailyPhotoLabel}`}>
+               <h3 className={`${style.dailyPhotoLabel}`}>Image of cat. Fact of cat</h3>
+               <div className={`${style.dailyPhotoBlock}`}>
                   <DailyPhoto/>
                </div>
-               
             </div>
          </article>
          <div className={`${style.newsBlock}`}>
-            <ul className={`${style.newsFilters}`}>
-               <li className={`${style.newsFilter}`}>Newest</li>
-               <li className={`${style.newsFilter}`}>Most popular</li>
-            </ul>
+            <div className={`${style.newsFilter}`}>
+               <NewsFilters/>
+            </div>
+            
             <article className={`${style.post}`}>
                <div className={`${style.postUser}`}>
                   <Link to={AppRoute.MyProfile} className={`${style.userName}`} >UserName</Link>

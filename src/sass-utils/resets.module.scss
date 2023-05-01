@@ -12,6 +12,10 @@
    padding: 0;
 }
 
+@mixin h-reset {
+   margin: 0;
+}
+
 @mixin ul-reset {
    margin: 0;
    padding: 0;

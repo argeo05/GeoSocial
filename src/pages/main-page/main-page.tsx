@@ -11,7 +11,7 @@ function MainPage(props: Props) {
 
    return (
       <div className={`${index.page} ${index.container}`}>
-         <header className="header">
+         <header className={`${style.header}`}>
             <Navbar />
          </header>
          <main className={`${style.main}`}>

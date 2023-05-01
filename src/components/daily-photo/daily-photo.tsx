@@ -23,11 +23,14 @@ function DailyPhoto(props: Props) {
       }>
          {
             isDailyPhotoLoading ?
-               <Loading height='150px' />
+               <Loading height='320px' />
                :
-               <img src={dailyPhoto?.image} className={`${style.dailyPhoto}`} height='320px' />
+               <>
+                  <img src={dailyPhoto?.image} className={`${style.dailyPhoto}`} height='320px' />
+                  <p className={`${style.dailyFact}`}>{dailyPhoto?.fact}</p>
+               </>
          }
-         <p className={`${style.dailyFact}`}>{dailyPhoto?.fact}</p>
+         
       </div>
 
    )
