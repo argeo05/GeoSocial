@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { SiteRoutes } from "../../routes"
 import PrivateRoute from "../private-route/private-route"
 import ErrorPage from "../../pages/error-page/error-page"
+import { HistoryRouter } from "../history-router/history-router"
+import browserHistory from "../../browser-histrory"
 
 interface Props { }
 
@@ -10,7 +12,7 @@ function App(props: Props) {
    const { } = props
 
    return (
-      <BrowserRouter>
+      <HistoryRouter history={browserHistory}>
          <Routes>
             {SiteRoutes.map(({ path, component: Component, isAuthRequired }) => isAuthRequired ?
                <Route key={path} path={path} element={
@@ -23,7 +25,7 @@ function App(props: Props) {
             <Route path='*' Component={ErrorPage} />
          </Routes>
 
-      </BrowserRouter>
+      </HistoryRouter>
    )
 }
 

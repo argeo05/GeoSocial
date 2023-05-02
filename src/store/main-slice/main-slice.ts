@@ -20,8 +20,9 @@ export const mainSlice = createSlice({
             state.isDailyPhotoLoading = true
          })
          .addCase(fetchRandomPhotoAction.rejected, (state, action) => {
+            console.log(1)
             state.isDailyPhotoLoading = false
-            state.isDailyPhotoError = false
+            state.isDailyPhotoError = true
          })
          .addCase(fetchRandomPhotoAction.fulfilled, (state, action) => {
             state.isDailyPhotoLoading = false

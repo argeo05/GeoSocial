@@ -5,6 +5,7 @@ import { getDailyPhoto, getIsDailyPhotoError, getIsDailyPhotoLoading } from '../
 import { fetchRandomPhotoAction } from '../../store/api-action';
 import style from './daily-photo.module.scss'
 import Loading from '../../components-ui/loading/loading';
+import Error from '../../components-ui/error/error';
 
 interface Props { }
 
@@ -24,11 +25,13 @@ function DailyPhoto(props: Props) {
          {
             isDailyPhotoLoading ?
                <Loading height='320px' />
-               :
-               <>
-                  <img src={dailyPhoto?.image} className={`${style.dailyPhoto}`} height='320px' />
-                  <p className={`${style.dailyFact}`}>{dailyPhoto?.fact}</p>
-               </>
+               : isDailyPhotoError ?
+                  <Error />
+                  :
+                  <>
+                     <img src={dailyPhoto?.image} className={`${style.dailyPhoto}`} height='320px' />
+                     <p className={`${style.dailyFact}`}>{dailyPhoto?.fact}</p>
+                  </>
          }
 
       </div>

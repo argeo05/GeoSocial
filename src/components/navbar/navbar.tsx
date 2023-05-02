@@ -1,31 +1,41 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { AppRoute } from '../../routes'
+import { logoutAction } from '../../store/api-action'
+import { getAuthStatus, getUser } from '../../store/user-slice/selectors'
+import { AppDispatch } from '../../types/state'
+import { AuthStatus } from '../../utils/const'
 import navbar from './navbar.module.scss'
 
 interface Props { }
 
 function Navbar(props: Props) {
    const { } = props
-   const [isAuth, setIsAuth] = useState(false)
-   let userName = 'UserNameee'
-   if (userName.length > 9) {
-      userName = userName.slice(0, 8) + '...'
+   const dispatch = useDispatch<AppDispatch>()
+   const isAuth = useSelector(getAuthStatus) == AuthStatus.Auth
+   const user = useSelector(getUser)
+
+   const userName = (user?.name.length ?? 0) > 10 ? user?.name.slice(0, 10) + '...' : user?.name
+   
+   const onLogoutClick = () => {
+      dispatch(logoutAction())
    }
-   const onClickHandle = () => {
-      setIsAuth(!isAuth)
-   }
+
    return (
-      <div className={`${navbar.cotainer}`}>
+      <div className={`${navbar.container}`}>
          <div className={`${navbar.top}`}>
             <div className={`${navbar.logo}`}>
                <img className={`${navbar.logoImage}`} src='img/logo.png' width='100px' height='40px' />
             </div>
-            { isAuth ? 
-               <div className={`${navbar.user}`}>
-                  <Link to={AppRoute.MyProfile} className={`${navbar.userName}`} >{userName}</Link>
-                  <img className={`${navbar.userImage}`} src='img/avatar.png' width='35px' height='35px' />
-               </div> :
+            {isAuth ? 
+               <Link to={AppRoute.MyProfile} onClick={onLogoutClick}>
+                  <div className={`${navbar.user}`}>
+                     <span className={`${navbar.userName}`} >{userName}</span>
+                     <img className={`${navbar.userImage}`} src={user?.avatarUrl} width='35px' height='35px' />
+                  </div>
+               </Link>
+                :
                <div className={`${navbar.user}`}>
                   <Link to={AppRoute.Login} className={`${navbar.userName} ${navbar.userNameNotLogged}`}>Login</Link>
                </div>
@@ -48,7 +58,6 @@ function Navbar(props: Props) {
                </li>
             </ul>
          </nav>
-         <button onClick={onClickHandle}>Change Auth status</button>
       </div>
    )
 }

@@ -1,5 +1,9 @@
 @use '../../sass-utils/resets.module.scss';
 
+.container {
+   padding-right: 5px;
+}
+
 .top {
    display: flex;
    justify-content: space-between;
