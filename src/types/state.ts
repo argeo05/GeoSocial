@@ -1,10 +1,16 @@
 import { store } from "../store/store";
-import { Cat } from "./common";
+import { AuthStatus } from "../utils/const";
+import { Cat, User } from "./common";
 
 export type MainSlice = {
    isDailyPhotoLoading: boolean,
    isDailyPhotoError: boolean,
    dailyPhoto?: Cat,
+}
+
+export type UserSlice = {
+   authStatus: AuthStatus,
+   user?: User
 }
 
 export type AppDispatch = typeof store.dispatch

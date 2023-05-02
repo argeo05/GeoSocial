@@ -1,3 +1,10 @@
 export enum NameSpace {
-   Main = 'MAIN'
+   Main = 'MAIN',
+   User = 'USER'
+}
+
+export enum AuthStatus {
+   Unknown = "UNKNOWN",
+   Auth = "AUTH",
+   Unauth = "ANAUTH"
 }

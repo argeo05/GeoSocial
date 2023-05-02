@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { AppDispatch } from '../../types/state'
 import { useDispatch, useSelector } from 'react-redux'
 import { getDailyPhoto, getIsDailyPhotoError, getIsDailyPhotoLoading } from '../../store/main-slice/selectors'
-import { fetchRandomPhoto } from '../../store/api-action';
+import { fetchRandomPhotoAction } from '../../store/api-action';
 import style from './daily-photo.module.scss'
 import Loading from '../../components-ui/loading/loading';
 
@@ -15,7 +15,7 @@ function DailyPhoto(props: Props) {
    const dailyPhoto = useSelector(getDailyPhoto)
 
    useEffect(() => {
-      dispatch(fetchRandomPhoto())
+      dispatch(fetchRandomPhotoAction())
    }, [])
 
    return (
@@ -30,7 +30,7 @@ function DailyPhoto(props: Props) {
                   <p className={`${style.dailyFact}`}>{dailyPhoto?.fact}</p>
                </>
          }
-         
+
       </div>
 
    )
