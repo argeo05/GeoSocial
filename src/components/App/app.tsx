@@ -5,14 +5,18 @@ import PrivateRoute from "../private-route/private-route"
 import ErrorPage from "../../pages/error-page/error-page"
 import { HistoryRouter } from "../history-router/history-router"
 import browserHistory from "../../browser-histrory"
-import { getToken } from "../../services/token"
+import { EMPTY_TOKEN, getToken } from "../../services/token"
 import { store } from "../../store/store"
 import { checkAuthAction } from "../../store/api-action"
+import { setAuthStatus } from "../../store/user-slice/user-slice"
+import { AuthStatus } from "../../utils/const"
 
 interface Props { }
 
-if (getToken() != '') {
+if (getToken() !== EMPTY_TOKEN) {
    store.dispatch(checkAuthAction())
+} else {
+   store.dispatch(setAuthStatus(AuthStatus.Unauth))
 }
 
 function App(props: Props) {

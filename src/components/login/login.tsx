@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { loginAction } from '../../store/api-action'
-import { LoginData } from '../../types/common'
+import { LoginData } from '../../types/api-types'
 import { AppDispatch } from '../../types/state'
 import style from './login.module.scss'
 

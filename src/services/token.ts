@@ -1,6 +1,9 @@
 const AUTH_TOKEN_KEY_NAME = 'geo-social-token'
 
+
 type Token = string
+
+export const EMPTY_TOKEN = 'Bearer '
 
 export const setToken = (token: Token) => {
    localStorage.setItem(AUTH_TOKEN_KEY_NAME, token)
@@ -11,5 +14,5 @@ export const dropToken = () => {
 }
 
 export const getToken = () : Token => {
-   return localStorage.getItem(AUTH_TOKEN_KEY_NAME) ?? ''
+   return 'Bearer ' + (localStorage.getItem(AUTH_TOKEN_KEY_NAME) ?? '')
 }
