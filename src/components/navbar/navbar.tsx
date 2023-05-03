@@ -16,7 +16,12 @@ function Navbar(props: Props) {
    const isAuth = useSelector(getAuthStatus) == AuthStatus.Auth
    const user = useSelector(getUser)
 
-   const userName = (user?.name.length ?? 0) > 10 ? user?.name.slice(0, 10) + '...' : user?.name
+   
+   let userName = user?.name
+
+   if (userName && userName.length > 10) {
+      userName = userName.slice(0, 10) + '...'
+   }
    
    const onLogoutClick = () => {
       dispatch(logoutAction())

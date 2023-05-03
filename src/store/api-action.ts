@@ -18,8 +18,11 @@ export const fetchRandomPhotoAction = createAsyncThunk<Cat, undefined,
    }>(
       'data/randomPhoto',
       async (_arg, { dispatch, extra: api }) => {
-         const { data } = await api.get<Cat>('https://some-random-api.ml/animal/cat')
-         return data
+         const [{ data: imgdata }, { data: factdata } ]= await Promise.all([
+            api.get<[{ url: string }]>('https://api.thecatapi.com/v1/images/search'),
+            api.get<{ fact: string }>('https://catfact.ninja/fact')]
+         )
+         return { image: imgdata[0].url, fact: factdata.fact } as Cat
       }
    )
 
